@@ -1,22 +1,27 @@
 import React, {useState, useEffect} from 'react'
+import { Card, Icon, Image } from 'semantic-ui-react'
+import CardComponent from './cardComponent.js'
 import axios from 'axios'
 
  function Card() {
-    const [person, setPerson] = useState('')
+    const [person, setPerson] = useState([])
 
-     useEffect(() => {
+    useEffect(() => {
         axios
-        .get('https://swapi.co/api/people/')
+        .get('https://swapi.co/api/people/?page=1')
         .then(response => {
-           const persons = response.data.results
-            setPerson(persons)
-            console.log(persons)
+            // console.log(response.data.results)
+            // const persons = response.data.results
+            setPerson(response.data.results)
+            
         }).catch(error => {
-            console.log("They shot into the exhaust of the Death Star!", error)
+            console.log('Not getting info from startwars api', error)
         })
     }, [])
-    return <div>
-    <CardComponent />
-</div>
+        console.log(person)
+    return (
+    <div>
+         <CardContainer person ={person}/>
+    </div>)
 }
 export default Card
