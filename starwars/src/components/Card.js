@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-import CardComponent from './cardComponent.js'
+import CardComponent from './CardComp.js'
+import Container from './Container'
 import axios from 'axios'
 
  function Card() {
@@ -21,7 +22,7 @@ import axios from 'axios'
         console.log(person)
     return (
     <div>
-         <CardContainer person ={person}/>
+         <Container person ={person}/>
     </div>)
 }
 export default Card
