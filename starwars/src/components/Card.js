@@ -8,8 +8,15 @@ import axios from 'axios'
         axios
         .get('https://swapi.co/api/people/')
         .then(response => {
-            console.log(response.data)
+           const persons = response.data.results
+            setPerson(persons)
+            console.log(persons)
+        }).catch(error => {
+            console.log("They shot into the exhaust of the Death Star!", error)
         })
-    })
+    }, [])
+    return <div>
+    <CardComponent />
+</div>
 }
-
+export default Card
