@@ -1,20 +1,40 @@
 import React from 'react'
-import CardComponent from './CardComp.js'
+import { Card, Image } from 'semantic-ui-react'
 import styled from 'styled-components'
 
-const StyledCardContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+
+const StyledCard = styled.div`
+    border:1px solid black;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding:2%;
+    margin: 10%;
 `;
 
-function Container(props){
-    console.log(props)
-    return (
-        <StyledCardContainer>
-        {props.person.map(character => (
-            <CardComponent key={character.name} character ={character} name={character.name} birthDate={character.birth_year}/>
-        ))}
-        </StyledCardContainer>    
-    )
-}
+const Container = ({name, birthDate, eyeColor, gender, hairColor, height}) => (
+
+  <Card>
+      <StyledCard>
+    <Image src='' wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>{name}</Card.Header>
+      <Card.Meta>
+        <span className='date'>Birthdate: {birthDate}</span>
+      </Card.Meta>
+      <Card.Description>
+        Character attributes:
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      
+          <p>Eye Color: {eyeColor}</p>
+          <p>Gender: {gender}</p>
+          <p>Hair Color: {hairColor}</p>
+          <p>Height: {height}</p>
+        
+    </Card.Content>
+    </StyledCard>
+  </Card>
+)
 export default Container
