@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Container from './Container'
+import CardContainer from './CardContainer.js'
 import axios from 'axios'
 
  function Card() {
@@ -20,7 +20,7 @@ import axios from 'axios'
         console.log(person)
     return (<div>
         
-        <Container person ={person}/>
+        <CardContainer person ={person}/>
     </div>)
 }
 export default Card
